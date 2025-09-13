@@ -1,41 +1,67 @@
-import ProductCard from "./ProductCard.jsx";
 import './App.css'
-import UserAvatar from './UserAvatar.jsx';
+import { useState } from 'react'
 
 function App() {
 
-  const productName1 = "BlackBox"
-  const productName2 = "WhiteBox"
-  const price = 1000
-  const isAvailable = true
+  // const handleClick=(name)=>{
+  //   // alert('Button Clicked!')
+  //   console.log('Button was clicked')
+  //   alert('Hello'+name)
+  // }
 
-  const img = "public/img1.png"
-  const Name = "Peddada Jasmika Satya Sri"
-  const Course = "B.Tech (CSE)"
-  const RollNo = "23VV1A0544"
-  const BloodGroup = "O+"
-  const DOB = "02-08-2006"
+  // let count =0;
+  const [count, setCount] = useState(0);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  })
+
+  // const handleEmail = (event) => {
+  //   setEmail(event.target.value);
+  // }
+
+  // const handlePassword = (event) => {
+  //   setPassword(event.target.value);
+  // }
+
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+    })
+
+    // console.log(event.target.name)
+    // console.log(event.target.value)
+  }
+
+  const handleIncrement = () => {
+    // setCount(count + 1);
+    setCount((prevCount) => prevCount + 1);
+  }
+
+  const handleSubmit = (event) => {
+    alert('You are Successfully Logged In\nYour Details are:\nEmail: ' + formData.email + '\nPassword: ' + formData.password);
+    event.preventDefault()
+  }
 
   return (
-    <div className="container">
-      <ProductCard product={productName1} price={price} isAvailable={isAvailable} />
-      <ProductCard product={productName2} price={price + 500} isAvailable={!isAvailable} />
-      <UserAvatar img={img} Name={Name} Course={Course} RollNo={RollNo} BloodGroup={BloodGroup} DOB={DOB} />
+    <div className="App">
+      <form onSubmit={handleSubmit}>
+        {/* <input type="text" name='myName' placeholder='Enter your name' onChange={handleChange}/> */}
+        <input type="email" name='email' placeholder='Enter your email' onChange={handleChange} /><br></br><br></br>
+        <input type="password" name='password' placeholder='Enter your password' onChange={handleChange} /><br></br><br></br>
+        {/* <button onClick={()=>handleClick("Jasmika")}>Click Me</button> */}
+        <button type="submit">Login</button>
+      </form>
+
+      <p>Count: {count}</p>
+      <button onClick={handleIncrement}>Increment</button>
+
     </div>
   )
 }
-
-// function User() {
-//   const Name = "Jasmika"
-//   const RollNo = "23VV1A0544"
-//   const BloodGroup = "O+"
-//   const DOB = "02-08-2006"
-
-//   return(
-//     <div className="container1">
-//       <UserAvatar Name={Name} RollNo={RollNo} BloodGroup={BloodGroup} DOB={DOB}/>
-//     </div>
-//   )
-// }
 
 export default App

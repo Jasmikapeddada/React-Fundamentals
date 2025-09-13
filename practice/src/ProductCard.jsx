@@ -21,7 +21,7 @@ function ProductCard(Product) {
 
     return (
         <div style={productStyle}>
-            <p style={name}>productName: {Product.product}</p>
+            <p style={name}>productName: {Product.productName}</p>
             <p className="price">price: {Product.price}</p>
             <p>{Product.isAvailable === true ? <p className="isAvailable">In stock</p> : <p className="isNotAvailable">Out of stock</p>}</p>
         </div>
