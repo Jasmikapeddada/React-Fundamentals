@@ -1,0 +1,24 @@
+.user {
+    border: 2px solid gray;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+    font-size: 17px;
+    border-radius: 5%;
+}
+
+.Name {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* img {
+    border-radius: 5%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 1px solid black;
+} */
